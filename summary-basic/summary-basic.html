@@ -1,0 +1,15 @@
+<h3 class="searchspring-summary_title">Current Filters</h3>
+<div class="summary-container element-container">
+	<ul>
+		<li ng-repeat="filter in filterSummary">
+			<!-- Could alternatively use ng-click="filter.remove.go" below for 
+			non-anchor elements -->
+			<a href="{{ filter.remove.url }}">
+				<span class="summary-label">{{ filter.filterLabel }}:</span> <span class="summary-value">{{ filter.filterValue }}</span>
+			</a>
+		</li>			   
+	</ul>
+	<div ng-if="filterSummary.length > 1" class="reset-summary searchspring-toggle">
+		<a href="{{ location().remove('filter').remove('rq').url() }}">Clear All</a>
+	</div>
+</div>

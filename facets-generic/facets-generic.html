@@ -1,0 +1,45 @@
+<h3 class="searchspring-facets_title">Shop By</h3>
+<div ng-repeat="facet in facets" ng-switch="facet.type" ng-if="(facet.type == 'hierarchy' ? facet.values.length : true)" id="searchspring-{{ facet.field }}" class="facet-container element-container {{ facet.type ? facet.type : 'list' }}">
+	<h4 class="facet-title" title="{{ facet.label }}" ng-click="facet.collapse = !facet.collapse" ng-class="{'open': !facet.collapse}">
+		{{ facet.label }}
+	</h4> 
+	<ul ng-switch-when="hierarchy">
+		<li ng-repeat="value in facet.values | limitTo:facet.overflow.limit" ng-class="{'filtered-current': value.active, 'filtered-link': value.history && !value.active}">
+			<a ng-if="!value.active" ng-href="{{ value.url }}" title="{{ value.label }}">
+				{{ value.label }} <span ng-if="!value.history" class="facet-count">({{ value.count }})</span>
+			</a>
+			<span ng-if="value.active" title="{{ value.label }}">{{ value.label }}</span>
+		</li>
+	</ul>
+	<ul ng-switch-when="grid" class="ss-cf">
+		<li ng-repeat="value in facet.values | limitTo:facet.overflow.limit">
+			<a href="{{ value.url }}" ng-class="{'highlight': value.active}">{{ value.label }}</a>  
+		</li>
+	</ul>
+	<ul ng-switch-when="palette" class="ss-cf">
+		<li ng-repeat="value in facet.values | limitTo:facet.overflow.limit">
+			<a ng-class="{'highlight': value.active}" alt="{{ value.label }}" title="{{ value.label }}" href="{{ value.url }}">
+				<span ng-style="{'background-color': value.label.toLowerCase() }" class="searchspring-color_{{ value.label.toLowerCase() }}"></span>
+			</a> 
+		</li>
+	</ul>
+	<ul ng-switch-when="slider">
+		<li ss-facet-slider="facet" class="slider-wrapper"></li>
+		<li class="reset-slider searchspring-toggle">
+			<a ng-if="facet.facet_active" ng-href="{{ location().remove('filter', facet.field).url() }}">Reset</a>
+		</li>
+	</ul>
+	<ul ng-switch-default>
+		<li ng-repeat="value in facet.values | limitTo:facet.overflow.limit">
+			<a href="{{ value.url }}" ng-class="{'highlight': value.active}">
+				{{ value.label }} <span class="facet-count">({{ value.count }})</span>
+			</a>
+		</li>
+	</ul>
+	<div ng-if="facet.overflow.set(facet.type == 'hierarchy' ? 9999 : 10).count" class="show-more searchspring-toggle">
+		<a ng-click="facet.overflow.toggle()">
+			Show {{ facet.overflow.remaining ? 'More +' : 'Less -' }}
+		</a>
+	</div>		   
+</div>
+<div id="searchspring-merch_left" ss-merchandising="left"></div>

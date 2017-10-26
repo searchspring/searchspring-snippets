@@ -1,0 +1,24 @@
+<!-- The module will create a slidout container. To target this, use a standard v3 template and add the 'slideout' directive.
+
+Additionally, any elements inside your templates that use the 'slideout' directive will gain the click action to 'toggle' the slideout open/close.
+Simply target the container inside the slideout template (in this case "#searchspring-slideout_facets") with your facets template. -->
+
+<!-- Slideout Template -->
+<script type="text/ss-template" slideout>
+  <a ng-if="facets.length > 0" href="" slideout><div class="searchspring-slideout_button"></div></a>
+  <div ng-if="facets.length > 0" id="searchspring-slideout_facets" class="Left" ng-swipe-left="slideout.toggleSlideout()"></div>
+</script>
+
+<!-- Facets Template. Note the multiple selectors on the target. One for your
+normal facets and one for the slideout -->
+<script type="text/ss-template" target="#LayoutColumn1, #searchspring-slideout_facets">
+  // Your facet content goes here.
+</script>
+
+<!-- Main Template. You can place the slide out buttons wherever you would like. This is just an example in an item results template.-->
+<script type="text/ss-template" target="#CategoryContent">
+  <div class="searchspring-slideout_button" slideout ng-if="pagination.totalResults && facets.length > 0">
+    <span class="searchspring-slideout_button_icon"></span>
+    <span class="searchspring-slideout_button_text">Filter Options</span>
+  </div>
+</script>

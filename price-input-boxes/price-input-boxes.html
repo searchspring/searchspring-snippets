@@ -1,0 +1,9 @@
+<form id="searchspring-price_input" ng-submit="location().add('filter', facet.field, facet.range[0], facet.range[1]).go()" name="ssPrice">
+    <div class="price-input-row">
+        <input type="text" value="" ng-model="facet.range[0]" ng-pattern="/^\\d*\\.?\\d*$/" />
+        <span class="to">to</span>
+        <input type="text" value="" ng-model="facet.range[1]" ng-pattern="/^\\d*\\.?\\d*$/" />
+        <input type="submit" value="Submit" ng-disabled="ssPrice.$invalid" />
+    </div>
+    <p class="price-error" ng-if="ssPrice.$invalid">Please enter only whole or decimal numbers. <strong>For example:</strong> 5.25 or 5.</p>
+</form>

@@ -1,0 +1,4 @@
+<li ng-if="facet.type == 'slider'" ss-facet-slider="facet">
+  <!-- Optional reset button -->
+	<a ng-href="{{ location().remove('filter', facet.field).url() }}" ng-if="facet.facet_active">Reset</a>
+</li>

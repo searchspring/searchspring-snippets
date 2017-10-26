@@ -1,0 +1,10 @@
+#searchspring-loading {
+  	background: url("//cdn.searchspring.net/ajax_search/img/searchspring-loader.gif") top right no-repeat;
+  	height: 11px;
+  	width: 16px;
+  	margin: 0 auto;
+  	position: absolute;
+  	left: 0;
+  	right: 0;
+  	top: 60px;
+}

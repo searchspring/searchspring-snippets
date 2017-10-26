@@ -1,0 +1,210 @@
+/* Helper classes */
+body .ss-cf:before, body .ss-cf:after {
+	content: '';
+	display: table;
+}
+body .ss-cf:after {
+	clear: both;
+}
+
+/* Facets & Summary */
+body .searchspring-facets .searchspring-toggle a, body .searchspring-summary .searchspring-toggle a {
+	cursor: pointer;
+}
+
+/* Facets */
+body .searchspring-facets .facet-title {
+	padding: 0 25px 0 0;
+	position: relative;
+	cursor: pointer;
+}
+body .searchspring-facets .facet-title:before {
+	position: absolute;
+	right: 0;
+	top: 0;
+	content: '+';
+}
+body .searchspring-facets .facet-title ~ ul, body .searchspring-facets .facet-title ~ .show-more {
+	display: none;
+}
+body .searchspring-facets .facet-title.open:before {
+	content: '-';
+}
+body .searchspring-facets .facet-title.open ~ ul, body .searchspring-facets .facet-title.open ~ .show-more {
+	display: block;
+}
+body .searchspring-facets .facet-container ul li a.highlight {
+	font-weight: bold;
+}
+body .searchspring-facets .facet-container ul li a .facet-count {
+	font-size: 11px;
+}
+body .searchspring-facets .facet-container.hierarchy ul li.filtered-link a:before {
+	content: '\0000ab';
+	padding: 0 2px 0 0;
+}
+body .searchspring-facets .facet-container.hierarchy ul li.filtered-current {
+	font-weight: bold;
+}
+body .searchspring-facets .facet-container.hierarchy ul li.filtered-current ~ li {
+	padding: 0 0 0 30px;
+}
+body .searchspring-facets .facet-container.palette ul, body .searchspring-facets .facet-container.grid ul {
+	margin: 0 -2.5px 10px -2.5px;
+}
+body .searchspring-facets .facet-container.palette ul li, body .searchspring-facets .facet-container.grid ul li {
+	float: left;
+	margin: 0 2.5px 5px 2.5px;
+	width: 36px;
+	height: 36px;
+	overflow: hidden;
+}
+body .searchspring-facets .facet-container.palette ul li a, body .searchspring-facets .facet-container.grid ul li a {
+	display: block;
+}
+body .searchspring-facets .facet-container.palette ul li a {
+	background: #333333;
+	width: 100%;
+	height: 100%;
+	border-radius: 100%;
+}
+body .searchspring-facets .facet-container.palette ul li a span {
+	display: block;
+	border-radius: 34px;
+	width: 34px;
+	height: 34px;
+	position: relative;
+	top: 1px;
+	left: 1px;
+	background-color: #ffffff;
+}
+body .searchspring-facets .facet-container.palette ul li a:hover, body .searchspring-facets .facet-container.palette ul li a.highlight {
+	background: #49669e;
+}
+body .searchspring-facets .facet-container.palette ul li a:hover span, body .searchspring-facets .facet-container.palette ul li a.highlight span {
+	border-radius: 32px;
+	width: 32px;
+	height: 32px;
+	top: 2px;
+	left: 2px;
+}
+body .searchspring-facets .facet-container.grid ul li a {
+	border: 1px solid #333333;
+	text-align: center;
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 34px;
+	margin: 0;
+	padding: 0 3px;
+}
+body .searchspring-facets .facet-container.grid ul li a:hover, body .searchspring-facets .facet-container.grid ul li a.highlight {
+	background: #49669e;
+	border: 1px solid #49669e;
+	color: #ffffff;
+}
+body .searchspring-facets .facet-container.slider ul li.slider-wrapper {
+	overflow: hidden;
+}
+body .searchspring-facets .facet-container.slider ul li.slider-wrapper rzslider {
+	display: block;
+}
+body .searchspring-facets .facet-container.slider ul li.slider-wrapper rzslider .rz-bar-wrapper {
+	margin-top: -19px;
+}
+body .searchspring-facets .facet-container.slider ul li.slider-wrapper rzslider .rz-bar.rz-selection {
+	margin-top: -3px;
+}
+body .searchspring-facets .facet-container.slider ul li.slider-wrapper rzslider .rz-pointer {
+	top: -11px;
+}
+body .searchspring-facets .facet-container.slider ul li.slider-wrapper rzslider .rz-bubble {
+	padding: 0;
+}
+
+/* Summary */
+body .searchspring-summary .searchspring-message p {
+	margin: 20px 0 0 0;
+}
+@media only screen and (max-width: 767px) {
+	body .searchspring-summary .searchspring-message p {
+		margin: 20px 0;
+	}
+}
+
+body .mobile-summary {
+	display: none;
+}
+@media only screen and (max-width: 767px) {
+	body .mobile-summary {
+		display: block;
+	}
+}
+
+/* Slider */
+body .searchspring-overlay {
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+body .searchspring-slideout_button {
+	background-color: #000000;
+	-webkit-transition: all 250ms ease-in-out 0s;
+	-moz-transition: all 250ms ease-in-out 0s;
+	-o-transition: all 250ms ease-in-out 0s;
+	transition: all 250ms ease-in-out 0s;
+}
+body .searchspring-slideout_button:hover {
+	background-color: #333333;
+	cursor: pointer;
+}
+
+body .searchspring-slideout_button.searchspring-slideout_filter {
+	display: none;
+	clear: both;
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	margin: 0 0 20px 0;
+	position: relative;
+}
+body .searchspring-slideout_button.searchspring-slideout_filter .searchspring-slideout_button_icon {
+	width: 30px;
+	height: 20px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background: url("//cdn.searchspring.net/ajax_search/img/sidebar-menuicon.png") no-repeat 0 0;
+}
+body .searchspring-slideout_button.searchspring-slideout_filter .searchspring-slideout_button_text {
+	line-height: 40px;
+	color: #ffffff;
+}
+@media only screen and (max-width: 767px) {
+	body .searchspring-slideout_button.searchspring-slideout_filter {
+		display: block;
+	}
+}
+
+body #searchspring-slideout_container #searchspring-slideout_header {
+	position: relative;
+	padding: 10px 65px 10px 10px;
+}
+body #searchspring-slideout_container #searchspring-slideout_header h4 {
+	line-height: 42px;
+	margin: 0;
+}
+body #searchspring-slideout_container #searchspring-slideout_header .searchspring-slideout_button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-image: url("//cdn.searchspring.net/ajax_search/img/back_white.png");
+	background-size: 90% 90%;
+	background-repeat: no-repeat;
+	background-position: center;
+	text-align: center;
+	height: 42px;
+	width: 42px;
+	margin: 0;
+}
+body #searchspring-slideout_container #searchspring-slideout_facets {
+	padding: 0 10px;
+}

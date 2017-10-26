@@ -1,0 +1,44 @@
+<!-- The following code is for the actual compare window. 
+Core fields like name and price should be on their own. 
+Additional fields marked as 'Compare' in SMC > Field Settings will be looped through. -->
+<script type="text/ss-template" target="#ss-compare">
+	<div class="searchspring-compare_container" ng-click="compare.open = false">
+		<div class="searchspring-compare_wrap" ng-click="$event.stopPropagation()">
+			<div class="searchspring-compare_header">
+				<button ng-click="compare.open = false" title="Close (Esc)" type="button" class="searchspring-compare_close"><span>x</span></button>
+			</div>
+			<div id="searchspring-compare_results">
+				<div class="searchspring-compare_row images">
+					<div class="searchspring-compare_spacer"></div>
+					<div class="searchspring-compare_image" ng-repeat="result in compare.results">
+						<a href="{{ result.url }}" intellisuggest>
+							<img ng-src="{{ result.imageUrl }}" onerror="this.src='//cdn.searchspring.net/ajax_search/img/missing-image-75x75.gif';">
+						</a>
+					</div>
+				</div>
+				<div class="searchspring-compare_row data product-name">
+					<div class="searchspring-compare_spacer"></div>
+					<div class="searchspring-compare_data" ng-repeat="result in compare.results" ng-if="result.name">
+						<a href="{{ result.url }}" intellisuggest>{{ result.name }}</a>
+					</div>
+				</div>
+				<div class="searchspring-compare_row data product-price">
+					<div class="searchspring-compare_label">Price</div>
+					<div class="searchspring-compare_data" ng-repeat="result in compare.results" ng-if="result.price">
+						{{ result.price | currency }}
+					</div>
+				</div>
+				<div class="searchspring-compare_row data" ng-repeat="field in compare.fields">
+					<div class="searchspring-compare_label">{{ field.label }}</div>
+					<div class="searchspring-compare_data" ng-repeat="result in compare.results" ng-if="result[field.key]">
+						{{ result[field.key] }}
+					</div>
+					<div class="searchspring-compare_data" ng-repeat="result in compare.results" ng-if="!result[field.key]">
+						---
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="searchspring-compare_overlay" ng-click="compare.open = false"></div>
+</script>

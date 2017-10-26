@@ -1,0 +1,1 @@
+this.importer.include('compare');

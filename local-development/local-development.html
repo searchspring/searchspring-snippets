@@ -1,0 +1,20 @@
+<!-- Add the following code directly below your searchspring.catalog.js script
+tag. -->
+<script>
+    SearchSpring.Catalog.templates.useExternalTemplates = false;
+    window.SearchSpringInit = function() {
+      // ANGULAR JS
+      // Insert your Angular Javascript here. Such as your this.on callbacks and
+      // this.importer calls to import modules.
+    };
+</script> 
+
+<!-- Below this you can include your Angular HTML Templates. An example is below -->
+<!-- ANGULAR HTML -->
+<script type="text/ss-template" target=".content-target-selector">
+  <h1>I found {{ pagination.totalResults }} results!</h1>
+</script>
+
+<!-- Once you're done working locally you can copy ANGULAR HTML templates to
+the Angular HTML section and the ANGULAR JS code to the Angular JS section of
+the SearchSpring Management Console -->

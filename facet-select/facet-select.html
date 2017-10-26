@@ -1,0 +1,9 @@
+<div ng-repeat="facet in facets" class="facet" id="searchspring-{{ facet.field }}_container">
+    <label>{{ facet.label }}</label>
+    <div class="select">
+        <select ng-model="storage[facet.field]" ng-change="storage[facet.field] && !location().remove('filter', facet.field).add('filter', facet.field, storage[facet.field]).remove('page').go() || location().remove('filter', facet.field).remove('page').go()" ng-options="value.value as value.label for value in facet.values">
+            <option ng-if="facet.field != 'category_hierarchy' || !facet.facet_active" value="">View All</option>
+        </select>
+    </div>
+</div>
+<div ng-if="keys(storage).length > 0"><a href="{{ location().remove('filter').url() }}">Reset</a></div>

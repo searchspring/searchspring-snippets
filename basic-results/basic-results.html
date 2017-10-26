@@ -1,0 +1,13 @@
+<div ng-repeat="result in results" class="item">
+	<a ng-href="{{ result.url }}" intellisuggest>
+		<img ng-src="{{ result.thumbnailImageUrl ? result.thumbnailImageUrl : '//cdn.searchspring.net/ajax_search/img/default_image.png' }}" onerror="this.src='//cdn.searchspring.net/ajax_search/img/default_image.png';" alt="{{ result.name }}" title="{{ result.name }}" />
+	</a>
+	<p><a ng-href="{{ result.url }}" intellisuggest>{{ result.name }}</a></p>
+	<p ng-if="(result.msrp * 1) > (result.price * 1) && result.msrp">
+		<strike>Retail: ${{ result.msrp | number:2 }}</strike><br />
+		Sale: ${{ result.price | number:2 }}
+	</p>
+	<p ng-if="(result.msrp * 1) <= (result.price * 1) || !result.msrp">
+		${{ result.price | number:2 }}
+	</p>
+</div>

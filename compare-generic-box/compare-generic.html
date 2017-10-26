@@ -1,0 +1,5 @@
+<!-- Add this to your item display.
+Really, the ng-click can be put on anything. -->
+<label for="compare-{{ result.uid }}" ng-class="{'add': !compare.full && !compare.has(result), 'checked': compare.has(result), 'disabled': compare.full && !compare.has(result)}">
+	<input id="compare-{{ result.uid }}" type="checkbox" ng-click="compare.toggle(result)" ng-checked="compare.has(result)" ng-disabled="compare.full && !compare.has(result)"><span>Compare</span>
+</label>

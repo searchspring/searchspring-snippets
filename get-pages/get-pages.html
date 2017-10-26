@@ -1,0 +1,16 @@
+<div class="pages-prev" ng-if="pagination.previous">
+    <span>
+        <a class="previous i-previous" ng-href="{{ pagination.previous.url }}" title="Previous"></a>
+    </span>
+</div> 
+<ol>    
+    <li ng-repeat="page in pagination.getPages(5)" ng-class="{'current': page.number == pagination.currentPage}">
+        <a ng-href="{{ page.url }}" ng-if="!page.active">{{ page.number }}</a>
+        <span ng-if="page.active">{{ page.number }}</span>
+    </li>
+</ol>
+<div class="pages-next" ng-if="pagination.next">
+    <span>
+        <a class="next i-next" ng-href="{{ pagination.next.url }}" title="Next"></a>
+    </span>
+</div>  

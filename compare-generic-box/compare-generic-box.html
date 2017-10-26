@@ -1,0 +1,11 @@
+<!-- Add the compare box in a template - probably in top options. -->
+<div id="searchspring-compare_box" class="searchspring-compare_box" ng-if="compare.active && !compare.open">
+	<div id="searchspring-compare_text">Compare Items</div>
+	<div id="searchspring-compare_button" ng-click="compare.compare() && (compare.open = true);">Compare</div>
+	<div id="searchspring-compare_image_container">
+		<div class="searchspring-compare_images" ng-repeat="selected in compare(4).selected track by selected.uid">
+			<div class="searchspring-compare_del" ng-click="compare.toggle(selected)"></div>
+			<img ng-src="{{ selected.thumbnailImageUrl }}" class="searchspring-compare_image">
+		</div>
+	</div>
+</div>

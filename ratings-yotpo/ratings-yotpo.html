@@ -1,0 +1,15 @@
+<div class="yotpo bottomLine" data-appkey="PUTYOTPOAPIKEYHERE" data-product-id="{{ result.uid }}">
+	<span class="yotpo-display-wrapper">
+		<div class="standalone-bottomline">
+			<div class="yotpo-bottomline pull-left star-clickable">
+				<span class="yotpo-stars">
+					<span ng-repeat="star in result.rating_array" class="yotpo-icon pull-left {{ star }}"></span>
+				</span>
+				<span class="text-m">{{ result.ratingCount }} Review{{ result.ratingCount > 1 ? 's' : '' }}</span>
+				<div class="yotpo-clr"></div>
+			</div>
+			<div class="yotpo-clr"></div>
+		</div>
+		<div class="yotpo-clr"></div>
+	</span>
+</div>

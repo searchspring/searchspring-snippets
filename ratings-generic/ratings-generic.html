@@ -1,0 +1,7 @@
+<!-- You can either implement the stars in two different ways -->
+
+<!-- Method 01: Loop where the file name changes -->
+<img ng-repeat="star in result.stars_array" ng-src="//url.com/images/icons/rating{{ star }}.png" alt="Review star icon">
+
+<!-- Method 02: Loop where the class name changes -->
+<i class="rating-{{ star }}" ng-repeat="star in result.stars_array"></i>

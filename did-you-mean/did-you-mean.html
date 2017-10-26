@@ -1,0 +1,1 @@
+<span ng-if="didYouMean.query.length">Did you mean <a href="{{ location().remove('q').add('q', didYouMean.query).url() }}">{{ didYouMean.query }}</a>?</span>

@@ -1,0 +1,5 @@
+<p class="results-text" ng-if="pagination.totalResults">
+  Showing <strong>{{ pagination.begin }}</strong> - <strong>{{ pagination.end }}</strong> of <strong>{{ pagination.totalResults }}</strong> 
+  <span ng-if="q">search results for <strong>"{{ q }}"</strong></span>
+  <span ng-if="!q">items</span>
+</p>

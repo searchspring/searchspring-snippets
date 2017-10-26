@@ -1,0 +1,6 @@
+<!-- Placing 4 products per row -->
+<div class="item-row" ng-repeat="row in results.rows(4)">
+    <div class="item" ng-repeat="result in row">
+        {{ result.name }}
+    </div>
+</div>

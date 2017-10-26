@@ -1,0 +1,5 @@
+<!-- Option 1 - Label not wrapping input -->
+<li ng-repeat="value in facet.values">
+	<input ng-click="value.go()" ng-model="value.active" id="ss-{{ facet.field }}-{{ $index }}" type="checkbox">
+	<label for="ss-{{ facet.field }}-{{ $index }}">{{ value.label }} <span class="facet-count">({{ value.count }})</span></label>
+</li>	

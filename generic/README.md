@@ -1,0 +1,3 @@
+A generic base template for AJAX v3 to use as a reference when building your own template. This template does not contain any top options (pagination, sort by, or items per page), as they are unique for every site. Change targets for "Results & No Results" and "Facets & Summary". Some things may need to be moved around or div classes changed to match the site. Includes our mobile slideout functionality for responsive sites.
+
+Tags: AJAX v3 - Base

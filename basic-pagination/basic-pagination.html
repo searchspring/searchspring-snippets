@@ -1,0 +1,28 @@
+<!-- previous page -->
+<span ng-if="pagination.previous">
+    <a ng-href="{{ pagination.previous.url }}">previous</a> |
+</span>
+ 
+ 
+<!-- first page -->
+<span ng-if="pagination.currentPage > 3">
+    <a ng-href="{{ pagination.first.url }}">{{ pagination.first.number }}</a> ...
+</span>
+ 
+ 
+<!-- range of pages around the current page -->
+<span ng-repeat="page in pagination.getPages(-2, 2)">
+    <a ng-href="{{ page.url }}" ng-if="!page.active">{{ page.number }}</a>
+    <span ng-if="page.active">{{ page.number }}</span>
+</span>
+ 
+ 
+<!-- last page -->
+<span ng-if="pagination.current.number <= pagination.total - 3">
+    ... <a ng-href="{{ pagination.last.url }}">{{ pagination.last.number }}</a>
+</span>
+  
+<!-- next page -->
+<span ng-if="pagination.next">
+    | <a ng-href="{{ pagination.next.url }}">next</a>
+</span>
