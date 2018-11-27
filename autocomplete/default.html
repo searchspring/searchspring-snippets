@@ -1,0 +1,78 @@
+<!-- AutoComplete -->
+<script type="text/ss-template" name="AutoComplete" target="[ss-autocomplete]">
+	<div class="ss-ac-container" ng-show="ac.visible" ng-class="{'no-terms': ac.terms.length == 0}">
+		<div id="ss-ac-terms" ng-show="ac.terms">
+			<ul class="ss-list">
+				<li ng-repeat="term in ac.terms | limitTo:4" class="ss-list-option" ng-class="{'ss-active': term.active}">
+					<a ng-bind-html="term.label | trusted" ss-nav-selectable ng-focus="term.preview()" href="{{ term.url }}" class="ss-list-link"></a>
+				</li>
+			</ul>
+		</div>
+		<div id="ss-ac-content">
+			<div id="ss-ac-facets" ng-show="ac.facets">
+				<div ng-repeat="facet in ac.facets | filter:{ type: '!slider' } | limitTo:3" ng-switch="facet.type" ng-if="facet.values.length" id="ss-ac-{{ facet.field }}" class="ss-ac-facet-container" ng-class="{'ss-ac-facet-container-list': (facet.type != 'grid' || facet.type != 'palette' || !facet.type), 'ss-ac-facet-container-palette': facet.type == 'palette', 'ss-ac-facet-container-grid': facet.type == 'grid'}">
+					<h4 class="ss-title">{{ facet.label }}</h4>
+					<ul ng-switch-when="grid" class="ss-grid">
+						<li ng-repeat="value in facet.values | limitTo:8" class="ss-grid-option">
+							<a href="{{ value.url }}" ss-nav-selectable ng-focus="value.preview()" class="ss-grid-link" ng-class="{'ss-active': value.active}">
+								<div class="ss-grid-block">
+									<div class="ss-grid-value">
+										<div class="ss-grid-label">{{ value.label }}</div>
+									</div>
+								</div>
+							</a>
+						</li>
+					</ul>
+					<ul ng-switch-when="palette" class="ss-palette">
+						<li ng-repeat="value in facet.values | limitTo:8" class="ss-palette-option">
+							<a href="{{ value.url }}" ss-nav-selectable ng-focus="value.preview()" class="ss-palette-link" ng-class="{'ss-active': value.active}" alt="{{ value.label }}">
+								<div class="ss-palette-block">
+									<div ng-style="{'background-color': value.label.toLowerCase() }" class="ss-palette-color ss-palette-color-{{ value.paletteClass }}"></div>
+								</div>
+								<div class="ss-palette-label">{{ value.label }}</div>
+							</a>
+						</li>
+					</ul>
+					<ul ng-switch-default class="ss-list">
+						<li ng-repeat="value in facet.values | limitTo:5" class="ss-list-option">
+							<a href="{{ value.url }}" ss-nav-selectable ng-focus="value.preview()" class="ss-list-link" ng-class="{'ss-active': value.active}">{{ value.label }}</a>
+						</li>
+					</ul>
+				</div>
+				<div ng-if="ac.merchandising.content.left.length > 0" id="ss-ac-merch-left" class="ss-ac-merchandising" ss-merchandising="ac.left"></div>
+			</div>
+			<div id="ss-ac-results">
+				<h4 class="ss-title">Product Suggestions</h4>
+				<div ng-if="ac.merchandising.content.header.length > 0" id="ss-ac-merch-header" class="ss-ac-merchandising" ss-merchandising="ac.header"></div>
+				<div ng-if="ac.merchandising.content.banner.length > 0" id="ss-ac-merch-banner" class="ss-ac-merchandising" ss-merchandising="ac.banner"></div>
+				<!-- Items -->
+				<ul class="ss-ac-item-container">
+					<li class="ss-ac-item" ng-repeat="result in ac.results | limitTo:ac.pagination.perPage">
+						<a ng-href="{{ result.url }}" ss-nav-selectable>
+							<div class="ss-ac-item-image">
+								<div class="ss-image-wrapper">
+									<img ng-src="{{ result.thumbnailImageUrl ? result.thumbnailImageUrl : '//cdn.searchspring.net/ajax_search/img/default_image.png' }}" onerror="this.src='//cdn.searchspring.net/ajax_search/img/default_image.png';" alt="{{ result.name }}" title="{{ result.name }}" />
+								</div>
+							</div>
+							<div class="ss-ac-item-details">
+								<p class="ss-ac-item-name">
+									{{ result.name.length > 40 ? (result.name.substring(0, 37) + '...') : result.name }}
+								</p>
+								<p class="ss-ac-item-price">
+									<span ng-if="result.msrp && (result.msrp * 1) > (result.price * 1)" class="ss-ac-item-msrp">${{ result.msrp | number:2 }}</span>
+									<span class="ss-ac-item-regular" ng-class="{'ss-ac-item-on-sale': result.msrp && (result.msrp * 1) > (result.price * 1)}">${{ result.price | number:2 }}</span>
+								</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+				<div ng-if="ac.merchandising.content.footer.length > 0" id="ss-ac-merch-footer" class="ss-ac-merchandising" ss-merchandising="ac.footer"></div>
+			</div>
+			<div id="ss-ac-see-more" ng-class="{'ss-ac-see-more-padding': ac.facets.length}">
+				<a ng-click="ac.location.remove('perpage').go();" class="ss-ac-see-more-link" ss-nav-selectable>
+					See {{ ac.pagination.totalResults }} {{ ac.breadcrumbs.length > 1 ? 'filtered' : '' }} result{{ ac.pagination.totalResults > 1 ? 's' : '' }} for "{{ ac.q }}"
+				</a>
+			</div>
+		</div>
+	</div>
+</script>
