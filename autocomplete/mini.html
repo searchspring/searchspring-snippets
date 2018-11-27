@@ -1,0 +1,40 @@
+	<div class="ss-ac-container" ng-show="ac.visible">
+		<div id="ss-ac-terms" ng-show="ac.terms.length">
+			<h4 class="ss-title">Search Suggestions</h4>
+			<ul class="ss-list">
+				<li ng-repeat="term in ac.terms | limitTo:4" class="ss-list-option" ng-class-even="'ss-ac-even'" ng-class-odd="'ss-ac-odd'" ng-class="{'ss-active': term.active}">
+					<a ng-bind-html="term.label | trusted" ss-nav-selectable ng-focus="term.preview()" href="{{ term.url }}" class="ss-list-link"></a>
+				</li>
+			</ul>
+		</div>
+		<div id="ss-ac-results" ng-show="ac.results.length">
+			<h4 class="ss-title">Product Suggestions</h4>
+			<ul class="ss-ac-item-container">
+				<li ng-repeat="result in ac.results | limitTo:ac.pagination.perPage" class="ss-ac-item" ng-class-even="'ss-ac-even'" ng-class-odd="'ss-ac-odd'">
+					<a ng-href="{{ result.url }}" ss-nav-selectable>
+						<div class="ss-ac-item-image">
+							<div class="ss-image-wrapper">
+								<img ng-src="{{ result.thumbnailImageUrl ? result.thumbnailImageUrl : '//cdn.searchspring.net/ajax_search/img/default_image.png' }}" onerror="this.src='//cdn.searchspring.net/ajax_search/img/default_image.png';" alt="{{ result.name }}" title="{{ result.name }}" />
+							</div>
+						</div>
+						<div class="ss-ac-item-details">
+							<p class="ss-ac-item-name">
+								{{ result.name.length > 60 ? (result.name.substring(0, 57) + '...') : result.name }}
+							</p>
+							<p class="ss-ac-item-price">
+								<span ng-if="result.msrp && (result.msrp * 1) > (result.price * 1)" class="ss-ac-item-msrp">${{ result.msrp | number:2 }}</span>
+								<span class="ss-ac-item-regular" ng-class="{'ss-ac-item-on-sale': result.msrp && (result.msrp * 1) > (result.price * 1)}">
+									${{ result.price | number:2 }}
+								</span>
+							</p>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="ss-ac-see-more">
+			<a ng-click="ac.location.remove('perpage').go();" class="ss-ac-see-more-link" ss-nav-selectable>
+				See {{ ac.pagination.totalResults }} result{{ ac.pagination.totalResults > 1 ? 's' : '' }} for "{{ ac.q }}"
+			</a>
+		</div>
+	</div>
