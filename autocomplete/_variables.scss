@@ -1,0 +1,115 @@
+// ---- INFORMATION
+//
+// 01. Change variables. Yay!
+// 02. Variables with true/false values can turned on or off.
+// 03. Default values set to '' (empty) can be left blank to not generate extra styles.
+
+// ---- MAIN
+
+  
+  $autocomplete_input: 'input.searchspring-ac';
+  $autocomplete_autoPosition: false;
+  $autocomplete_limit: 6;
+
+
+	// Configuration
+	$ac-main-right: 0;
+	$ac-main-left: auto;
+	$ac-main-top: 45px;
+
+// ---- CONTAINER
+
+	// Colors
+	$ac-container-color-01: #333333; // border
+	$ac-container-color-02: #f3f4f6; // background
+	$ac-container-color-03: #333333; // link
+
+	// Configuration
+	$ac-container-font: ''; // add value for font family
+	$ac-container-font-size: 12px;
+	$ac-container-shadow-on: true;
+	$ac-container-border-on: false;
+	$ac-container-border-radius: ''; // add value for border radius
+
+// ---- ACTIVE AND FOCUS STATES
+
+	// Colors
+	$ac-focused-color-01: #000000; // active and focus
+
+	// Configuration
+	$ac-focused-decoration: underline;
+	$ac-focused-style: ''; // refers to font-style property
+	$ac-focused-weight: '';
+
+// ---- TERMS
+
+	// Configuration
+	$ac-terms-width: 150px;
+	$ac-terms-font-size: $ac-container-font-size + 4px;
+	$ac-terms-em-style: normal; // refers to font-style property
+	$ac-terms-em-weight: bold;
+
+// ---- CONTENT
+
+	// Colors
+	$ac-content-color-01: #ffffff; // content background, term highlight background
+
+	// Configuration
+	$ac-content-width: 700px;
+
+// ---- RESULTS
+
+	// Colors
+	$ac-results-color-01: #000; // results title
+	$ac-results-color-03: #353d50; // item name
+
+	// Configuration
+	$ac-results-title-font: ''; // add value for font family
+	$ac-results-title-font-size: $ac-container-font-size + 6px;
+	$ac-results-title-weight: ''; // add value for font weight
+	$ac-results-title-transform: ''; // add value for transform
+	$ac-results-li-width: 33.33%;
+	$ac-results-image-height: 120px;
+	$ac-results-regular-weight: ''; // add value for font weight
+	$ac-results-sale-weight: ''; // add value for font weight
+	$ac-results-msrp-weight: ''; // add value for font weight
+	$ac-results-msrp-decoration: line-through;
+
+// ---- SEE MORE RESULTS
+
+	// Colors
+	$ac-more-color-01: #9e8d4b; // see more link
+	$ac-more-color-02: #9e8d4b; // see more icon
+
+	// Configuration
+	$ac-more-text-align: right;
+	$ac-more-font-size: $ac-container-font-size + 2px;
+	$ac-more-font: ''; // add value for font family
+	$ac-more-weight: ''; // add value for font weight
+	$ac-more-transform: ''; // add value for transform
+	$ac-more-icon: true; // show or hide right arrow icon
+	$ac-more-icon-size: 14px; // icon size
+	$ac-more-icon-top: 2.5px; // top offset to align with text
+
+// ---- BREAKPOINT 1
+
+	// Configuration
+	$ac-bp1-width: 1199px;
+	$ac-bp1-image-height: ''; // add value to resize image
+
+// ---- BREAKPOINT 3
+
+	// Configuration
+	$ac-bp2-width: 979px;
+	$ac-bp2-products: 3;
+	$ac-bp2-image-height: 100px; // add value to resize image
+
+// ---- BREAKPOINT 3
+
+	// Configuration
+	$ac-bp3-width: 767px;
+	$ac-bp3-products: 2;
+	$ac-bp3-image-height: 80px; // add value to resize image (only works on list view aka style1 below)
+	$ac-bp3-item-layout-style: style1; // style1 (grid view), style2 (list view)
+	$ac-bp3-item-style2-image-width: 60px;
+	$ac-bp3-item-style2-image-max-height: 60px;
