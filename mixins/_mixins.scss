@@ -1,0 +1,140 @@
+// Animate
+// Example for $value: ss-spin 2s infinite linear
+@mixin animate($value) {
+	-webkit-animation: $value;
+	-moz-animation: $value;
+	-ms-animation: $value;
+	-o-animation: $value;
+	animation: $value;
+}
+
+// Animate - Spin
+// Example: use when animating icons with the animate mixin (check out infinite module)
+@mixin animate-spin {
+	@keyframes ss-spin {
+		0% {
+			@include transform(rotate(0deg));
+		}
+		to {
+			@include transform(rotate(1turn));
+		}
+	}
+}
+
+// Border radius with browser prefixes
+@mixin border-radius($size) {
+	-webkit-border-radius: $size;
+	-moz-border-radius: $size;
+	-ms-border-radius: $size;
+	-o-border-radius: $size;
+	border-radius: $size;
+}
+
+// Box shadow with browser prefixes
+@mixin box-shadow ($size, $color) {
+	-webkit-box-shadow: $size $color;
+	-moz-box-shadow: $size $color;
+	box-shadow: $size $color;
+}
+
+// Box sizing with browser prefixes
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// Clearfix
+@mixin clearfix($selector) {
+	#{$selector}:before, #{$selector}:after {
+		content: '';
+		display: table;
+	}
+	#{$selector}:after {
+		clear: both;
+		zoom: 1;
+	}
+}
+
+// Import icon mixins
+// Icons should be imported before other mixins that use them, like checkboxes
+@import '_icons.scss';
+
+// Inline block with vertical alignment
+@mixin inline-block($vertical-align) {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	vertical-align: $vertical-align;
+}
+
+// Placeholder
+// Examples: @include placeholder {}, :focus{@include placeholder {}}, or input {@include placeholder {}}
+@mixin placeholder {
+	&::-webkit-input-placeholder {@content}
+	&:-moz-placeholder           {@content}
+	&::-moz-placeholder          {@content}
+	&:-ms-input-placeholder      {@content}
+}
+
+// Mixin for positioning
+@mixin position($type: '', $top: '', $bottom: '', $left: '', $right: '', $z: '') {
+	@if ($type != '') {
+		position: $type;
+	}
+	@if ($top != '') {
+		top: $top;
+	}
+	@if ($bottom != '') {
+		bottom: $bottom;
+	}
+	@if ($left != '') {
+		left: $left;
+	}
+	@if ($right != '') {
+		right: $right;
+	}
+	@if ($z != '') {
+		z-index: $z;
+	}
+}
+
+// General reset - no margin or padding
+@mixin reset {
+	margin: 0;
+	padding: 0;
+}
+
+// Responsive px breakpoint, pass in a pixel value
+@mixin respond($breakpoint) {
+	@if index('px' 'cm' 'mm' 'in' 'pt' 'pc' 'dpi' 'dpcm' 'dppx' 'em' 'ex' 'rem' '%' 'vw' 'vh' 'vmin' 'vmax', unit($breakpoint)) == null {
+		$breakpoint: $breakpoint + 'px';
+	}
+	@media only screen and (max-width: $breakpoint) {
+		@content;
+	}
+}
+
+// Quick width and height sizing
+@mixin sizing($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+// Transform
+@mixin transform($value) {
+	-webkit-transform: $value;
+	-moz-transform: $value;
+	-ms-transform: $value;
+	-o-transform: $value;
+	transform: $value;
+}
+
+// Transition
+@mixin transition($value) {
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-ms-transition: $value;
+	-o-transition: $value;
+	transition: $value;
+}
